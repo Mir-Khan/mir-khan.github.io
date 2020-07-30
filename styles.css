@@ -1,4 +1,8 @@
+.fourBody{
+    background-color: #477cee
+}
 .fourHeading{
     display: inline-block;
     text-align: center;
+    color: #000000
 }
