@@ -2,34 +2,26 @@
 .fourBody {
   background-color: #93e5ab;
   font-family: "Ubuntu", sans-serif; }
-
-#makeshift-text {
-  color: black;
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.fourDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 90vh;
-  color: #013629;
-  text-align: center; }
-  .fourDiv .fourHeading {
-    text-decoration: underline;
-    font-size: 2rem; }
-  .fourDiv .fourText {
-    font-size: 0.81rem; }
-  .fourDiv .fourLink {
-    border: none;
-    font-weight: bold;
-    color: #325457; }
-    .fourDiv .fourLink:hover {
-      color: #e3170a; }
-    .fourDiv .fourLink:visited {
+  .fourBody .fourDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    color: #013629;
+    text-align: center; }
+    .fourBody .fourDiv .fourHeading {
+      text-decoration: underline;
+      font-size: 2rem; }
+    .fourBody .fourDiv .fourText {
+      font-size: 0.81rem; }
+    .fourBody .fourDiv .fourLink {
+      border: none;
+      font-weight: bold;
       color: #325457; }
+      .fourBody .fourDiv .fourLink:hover {
+        color: #e3170a; }
+      .fourBody .fourDiv .fourLink:visited {
+        color: #325457; }
 
 #page-footer {
   position: fixed;

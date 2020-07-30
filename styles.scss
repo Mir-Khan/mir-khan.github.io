@@ -11,37 +11,30 @@ $yellow-munsel: rgba(239, 202, 8, 1);
 .fourBody{
     background-color: $celadon;
     font-family: $ubuntu;
-}
-#makeshift-text{
-    color: black;
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.fourDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 90vh;
-    color: $dark-green;
-    text-align: center;
-    .fourHeading{
-        text-decoration: underline; 
-        font-size: 2rem;
-    }
-    .fourText{
-        font-size: 0.81rem;
-    }
-    .fourLink{
-        border: none;
-        font-weight: bold;
-        color: $steel-teal;
-        &:hover{
-            color: $vermillion;
+    .fourDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90vh;
+        color: $dark-green;
+        text-align: center;
+        .fourHeading{
+            text-decoration: underline; 
+            font-size: 2rem;
         }
-        &:visited{
+        .fourText{
+            font-size: 0.81rem;
+        }
+        .fourLink{
+            border: none;
+            font-weight: bold;
             color: $steel-teal;
+            &:hover{
+                color: $vermillion;
+            }
+            &:visited{
+                color: $steel-teal;
+            }
         }
     }
 }
