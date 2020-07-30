@@ -17,8 +17,7 @@
     .fourBody .fourDiv .fourLink {
       border: none;
       font-weight: bold;
-      color: #325457;
-      width: 20px; }
+      color: #325457; }
       .fourBody .fourDiv .fourLink:hover {
         color: #e3170a; }
       .fourBody .fourDiv .fourLink:visited {
