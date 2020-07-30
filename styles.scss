@@ -1,44 +1,67 @@
-$steel-teal: rgba(78, 135, 140, 1);
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+$ubuntu: 'Ubuntu', sans-serif; 
+$steel-teal: rgb(50, 84, 87);
 $ocean-green: rgba(101, 184, 145, 1);
 $celadon: rgba(147, 229, 171, 1);
 $magic-mint: rgba(181, 255, 225, 1);
-$dark-green: rgb(1, 54, 41);
+$dark-green: rgba(1, 54, 41, 1);
 $vermillion: rgba(227, 23, 10, 1);
+$yellow-munsel: rgba(239, 202, 8, 1);
 
 .fourBody{
-    margin-top: 20%;
     background-color: $celadon;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $ubuntu;
 }
-.fourHeading{
-    text-decoration: underline;
-    text-align: center;
-    color: $dark-green;
-}
-.fourText{
-    color: $dark-green;
-    font-size: 13px;
-    text-align: center;
-}
-.fourLink{
-    text-align: center;
-    color: $dark-green;
-    font-weight: bold;
-    :hover{
-        color: black;
-    }
-    :visited{
-        color: $vermillion;
-    }
+#makeshift-text{
+    color: black;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .fourDiv{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    height: 90vh;
+    color: $dark-green;
+    text-align: center;
+    .fourHeading{
+        text-decoration: underline; 
+        font-size: 2rem;
+    }
+    .fourText{
+        font-size: 0.81rem;
+    }
+    .fourLink{
+        border: none;
+        font-weight: bold;
+        color: $steel-teal;
+        &:hover{
+            color: $vermillion;
+        }
+        &:visited{
+            color: $yellow-munsel;
+        }
+    }
 }
 #page-footer{
-    color: $dark-green;
-    display: flex;
-    flex-direction: row;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    p{
+        color: black;
+        font-weight: bold;
+        font-size: 0.95rem;
+    }
+    i{
+        color: $dark-green;
+    }
+    .fa-github, .fa-linkedin{
+        &:hover{
+            color: $vermillion;
+        }
+    }
 }
