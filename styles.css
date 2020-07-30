@@ -1,8 +1,19 @@
 .fourBody{
-    background-color: #477cee
+    background-color: #477cee;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .fourHeading{
-    display: inline-block;
+    align-items: center;
+    color: #000000;
+}
+.fourText{
+    font-size: 13px;
+    font-weight: lighter;
     text-align: center;
-    color: #000000
+}
+.fourLink{
+    color: rgba(255, 255, 255, 0.89);
+}
+.fourLink:hover{
+    color: rgba(0, 0, 0, 1);
 }
