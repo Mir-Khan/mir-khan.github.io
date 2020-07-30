@@ -1,0 +1,37 @@
+/*Colors to be used on the website*/
+$steel-teal: rgba(78, 135, 140, 1);
+$ocean-green: rgba(101, 184, 145, 1);
+$caldeon: rgba(147, 229, 171, 1);
+$magic-mint: rgba(181, 255, 225, 1);
+$dark-green: rgba(0, 36, 27, 1);
+$vermillion: rgba(227, 23, 10, 1);
+
+.fourBody{
+    background-color: $steel-teal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.fourHeading{
+    text-align: center;
+    color: $dark-green;
+}
+.fourText{
+    font-size: 13px;
+    font-weight: lighter;
+    text-align: center;
+}
+.fourLink{
+    text-align: center;
+    color: $magic-mint;
+    :hover{
+        color: $dark-green;
+    }
+    :visited{
+        color: $ocean-green;
+    }
+}
+.fourDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
