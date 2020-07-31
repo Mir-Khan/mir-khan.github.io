@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <script type="module" src="index.js"></script>
-    <head>
-        <meta charset="utf-8">
-        <title>D3 Bar Graph</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div id="container">
-            <h1 id="title">Here</h1>
-            <div id="data"></div>
-        </div>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>D3 Bar Graph</title>
+    <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="title">Here</h1>
+        <div id="data"></div>
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        //dimensions of svg
+        const w = 500;
+        const h = 100;
+        //creating the svg variable
+        let svg = d3.select("body").append("svg").attr("width", w).attr("height", h);
+        //getting the JSON data
+        //data source
+        const url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json';
+        //requesting the data
+        d3.json(url, function (data) {
+            console.log(data);
+        });
+    </script>
+</body>
+
 </html>

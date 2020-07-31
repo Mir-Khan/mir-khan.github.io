@@ -25,17 +25,6 @@ $yellow-munsel: rgba(239, 202, 8, 1);
         .fourText{
             font-size: 0.81rem;
         }
-        .fourLink{
-            border: none;
-            font-weight: bold;
-            color: $steel-teal;
-            &:hover{
-                color: $vermillion;
-            }
-            &:visited{
-                color: $steel-teal;
-            }
-        }
     }
 }
 #page-footer{

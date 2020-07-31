@@ -14,14 +14,6 @@
       font-size: 2rem; }
     .fourBody .fourDiv .fourText {
       font-size: 0.81rem; }
-    .fourBody .fourDiv .fourLink {
-      border: none;
-      font-weight: bold;
-      color: #325457; }
-      .fourBody .fourDiv .fourLink:hover {
-        color: #e3170a; }
-      .fourBody .fourDiv .fourLink:visited {
-        color: #325457; }
 
 #page-footer {
   position: fixed;
