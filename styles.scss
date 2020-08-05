@@ -8,9 +8,13 @@ $dark-green: rgba(1, 54, 41, 1);
 $vermillion: rgba(227, 23, 10, 1);
 $yellow-munsel: rgba(239, 202, 8, 1);
 
-.fourBody{
+@mixin default-body(){
     background-color: $celadon;
     font-family: $ubuntu;
+}
+
+.fourBody{
+    @include default-body();
     .fourDiv{
         display: flex;
         flex-direction: column;
@@ -45,5 +49,69 @@ $yellow-munsel: rgba(239, 202, 8, 1);
         &:hover{
             color: $vermillion;
         }
+    }
+}
+.bar-body{
+    @include default-body();
+
+    .bar-description{
+        font-size: 17px;
+        text-align: center;
+        background-color: white;
+        padding: 2px;
+        width: 60vw;
+        margin: auto;
+        margin-top: auto;
+        margin-top: 20px;
+        box-shadow: 2px 4px 6px 2px black;
+        a{
+            color: $ocean-green;
+            :hover{
+                color: $steel-teal;
+            }
+            :visited{
+                color: $dark-green;
+            }
+        }
+    }
+
+    .bar-container{
+        background-color: white;
+        padding: 3px;
+        margin: auto;
+        width: 900px;
+        margin: auto;
+        box-shadow: 2px 5px 6px 4px black;
+        margin-top: 40px;
+    }
+
+    .bar{
+        fill: $vermillion;
+    }
+
+    .bar-tip{
+        background-color: black;
+        color: white;
+        position: absolute;
+        z-index: 1;
+        text-align: center;
+        line-height: 20px;
+        padding: 5px;
+        width: 105px;
+    }
+
+    .barSvgClass{
+        margin: auto;
+        display: block;
+    }
+
+    .barTitle{
+        font-size: 28px;
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    .barYLabel{
+        font-size: 17px;
     }
 }

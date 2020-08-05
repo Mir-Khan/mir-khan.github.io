@@ -29,3 +29,51 @@
     color: #013629; }
   #page-footer .fa-github:hover, #page-footer .fa-linkedin:hover, #page-footer .fa-home:hover {
     color: #e3170a; }
+
+.bar-body {
+  background-color: #93e5ab;
+  font-family: "Ubuntu", sans-serif; }
+  .bar-body .bar-description {
+    font-size: 17px;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: 60vw;
+    margin: auto;
+    margin-top: auto;
+    margin-top: 20px;
+    box-shadow: 2px 4px 6px 2px black; }
+    .bar-body .bar-description a {
+      color: #65b891; }
+      .bar-body .bar-description a :hover {
+        color: #325457; }
+      .bar-body .bar-description a :visited {
+        color: #013629; }
+  .bar-body .bar-container {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: 900px;
+    margin: auto;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: 40px; }
+  .bar-body .bar {
+    fill: #e3170a; }
+  .bar-body .bar-tip {
+    background-color: black;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    line-height: 20px;
+    padding: 5px;
+    width: 105px; }
+  .bar-body .barSvgClass {
+    margin: auto;
+    display: block; }
+  .bar-body .barTitle {
+    font-size: 28px;
+    text-align: center;
+    text-decoration: underline; }
+  .bar-body .barYLabel {
+    font-size: 17px; }
