@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-$ubuntu: 'Ubuntu', sans-serif; 
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+$ubuntu: "Ubuntu", sans-serif;
 $steel-teal: rgb(50, 84, 87);
 $ocean-green: rgba(101, 184, 145, 1);
 $celadon: rgba(147, 229, 171, 1);
@@ -8,110 +8,173 @@ $dark-green: rgba(1, 54, 41, 1);
 $vermillion: rgba(227, 23, 10, 1);
 $yellow-munsel: rgba(239, 202, 8, 1);
 
-@mixin default-body(){
+@mixin default-body() {
     background-color: $celadon;
     font-family: $ubuntu;
 }
+@mixin tooltip-setup($background, $text) {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: $background;
+    color: $text;
+}
 
-.fourBody{
+@mixin svgCenter() {
+    display: block;
+    margin: auto;
+}
+
+@mixin svgContainer($width, $topMargin) {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: $width;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: $topMargin;
+}
+
+@mixin d3-description($fontSize, $boxWidth, $marginTop) {
+    font-size: $fontSize;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: $boxWidth;
+    margin: auto;
+    margin-top: $marginTop;
+    box-shadow: 2px 4px 6px 2px black;
+    a {
+        color: $ocean-green;
+        :hover {
+            color: $steel-teal;
+        }
+        :visited {
+            color: $dark-green;
+        }
+    }
+}
+
+.fourBody {
     @include default-body();
-    .fourDiv{
+    .fourDiv {
         display: flex;
         flex-direction: column;
         justify-content: center;
         height: 90vh;
         color: $dark-green;
         text-align: center;
-        .fourHeading{
-            text-decoration: underline; 
+        .fourHeading {
+            text-decoration: underline;
             font-size: 2rem;
         }
-        .fourText{
+        .fourText {
             font-size: 0.81rem;
         }
     }
 }
-#page-footer{
+#page-footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
-    p{
+    p {
         color: black;
         font-weight: bold;
         font-size: 0.95rem;
     }
-    i{
+    i {
         color: $dark-green;
     }
-    .fa-github, .fa-linkedin, .fa-home{
-        &:hover{
+    .fa-github,
+    .fa-linkedin,
+    .fa-home {
+        &:hover {
             color: $vermillion;
         }
     }
 }
-.bar-body{
+.bar-body {
     @include default-body();
 
-    .bar-description{
-        font-size: 17px;
-        text-align: center;
-        background-color: white;
-        padding: 2px;
-        width: 60vw;
-        margin: auto;
-        margin-top: auto;
-        margin-top: 20px;
-        box-shadow: 2px 4px 6px 2px black;
-        a{
-            color: $ocean-green;
-            :hover{
-                color: $steel-teal;
-            }
-            :visited{
-                color: $dark-green;
-            }
-        }
+    .bar-description {
+        @include d3-description(17px, 60vw, 20px);
     }
 
-    .bar-container{
-        background-color: white;
-        padding: 3px;
-        margin: auto;
-        width: 900px;
-        margin: auto;
-        box-shadow: 2px 5px 6px 4px black;
-        margin-top: 40px;
+    .bar-container {
+        @include svgContainer(900px, 40px);
     }
 
-    .bar{
+    .bar {
         fill: $vermillion;
     }
 
-    .bar-tip{
-        background-color: black;
-        color: white;
-        position: absolute;
-        z-index: 1;
-        text-align: center;
+    .bar-tip {
+        @include tooltip-setup(black, white);
         line-height: 20px;
         padding: 5px;
         width: 105px;
     }
 
-    .barSvgClass{
-        margin: auto;
-        display: block;
+    .barSvgClass {
+        @include svgCenter();
     }
 
-    .barTitle{
+    .barTitle {
         font-size: 28px;
         text-align: center;
         text-decoration: underline;
     }
 
-    .barYLabel{
+    .barYLabel {
         font-size: 17px;
+    }
+}
+
+.scatter-body {
+    @include default-body();
+
+    .scatter-description {
+        @include d3-description(15px, 60vw, 20px);
+    }
+
+    .scatter-title {
+        text-align: center;
+        line-height: 5px;
+        h1 {
+            text-decoration: underline;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .scatter-tip {
+        @include tooltip-setup($dark-green, $magic-mint);
+        font-size: 12px;
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    .scatter-container {
+        @include svgContainer(900px, 20px);
+    }
+
+    .scatterClass {
+        @include svgCenter();
+    }
+
+    .scatter-y-axis {
+        font-size: 10px;
+    }
+
+    .scatter-y-label {
+        font-size: 11px;
+    }
+
+    #legend {
+        font-size: 14px;
     }
 }

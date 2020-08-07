@@ -27,7 +27,9 @@
     font-size: 0.95rem; }
   #page-footer i {
     color: #013629; }
-  #page-footer .fa-github:hover, #page-footer .fa-linkedin:hover, #page-footer .fa-home:hover {
+  #page-footer .fa-github:hover,
+  #page-footer .fa-linkedin:hover,
+  #page-footer .fa-home:hover {
     color: #e3170a; }
 
 .bar-body {
@@ -40,7 +42,6 @@
     padding: 2px;
     width: 60vw;
     margin: auto;
-    margin-top: auto;
     margin-top: 20px;
     box-shadow: 2px 4px 6px 2px black; }
     .bar-body .bar-description a {
@@ -54,26 +55,78 @@
     padding: 3px;
     margin: auto;
     width: 900px;
-    margin: auto;
     box-shadow: 2px 5px 6px 4px black;
     margin-top: 40px; }
   .bar-body .bar {
     fill: #e3170a; }
   .bar-body .bar-tip {
-    background-color: black;
-    color: white;
     position: absolute;
     z-index: 1;
     text-align: center;
+    background-color: black;
+    color: white;
     line-height: 20px;
     padding: 5px;
     width: 105px; }
   .bar-body .barSvgClass {
-    margin: auto;
-    display: block; }
+    display: block;
+    margin: auto; }
   .bar-body .barTitle {
     font-size: 28px;
     text-align: center;
     text-decoration: underline; }
   .bar-body .barYLabel {
     font-size: 17px; }
+
+.scatter-body {
+  background-color: #93e5ab;
+  font-family: "Ubuntu", sans-serif; }
+  .scatter-body .scatter-description {
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: 60vw;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 2px 4px 6px 2px black; }
+    .scatter-body .scatter-description a {
+      color: #65b891; }
+      .scatter-body .scatter-description a :hover {
+        color: #325457; }
+      .scatter-body .scatter-description a :visited {
+        color: #013629; }
+  .scatter-body .scatter-title {
+    text-align: center;
+    line-height: 5px; }
+    .scatter-body .scatter-title h1 {
+      text-decoration: underline;
+      font-size: 24px;
+      margin-top: 30px; }
+    .scatter-body .scatter-title p {
+      font-size: 18px; }
+  .scatter-body .scatter-tip {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: #013629;
+    color: #b5ffe1;
+    font-size: 12px;
+    padding: 8px;
+    border-radius: 10px; }
+  .scatter-body .scatter-container {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: 900px;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: 20px; }
+  .scatter-body .scatterClass {
+    display: block;
+    margin: auto; }
+  .scatter-body .scatter-y-axis {
+    font-size: 10px; }
+  .scatter-body .scatter-y-label {
+    font-size: 11px; }
+  .scatter-body #legend {
+    font-size: 14px; }

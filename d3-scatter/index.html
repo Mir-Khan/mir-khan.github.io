@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Scatter Plot</title>
+    <link href="../styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/63ada23c4f.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-time.v1.min.js"></script>
+    <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+</head>
+
+<body class="scatter-body">
+    <div class="scatter-description">
+        <p>This scatter plot was made using the data found <a target="_blank"
+                href="https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json">here</a>
+            as a part of the D3 challenges at <a target="_blank"
+                href="https://www.freecodecamp.org/">Freecodecamp.org</a>
+    </div>
+    <div class="scatter-container">
+        <div id="title" class="scatter-title"></div>
+        <div id="data"></div>
+    </div>
+    <script>
+        //titles of scatterplot
+        d3.select("#title")
+            .append("text")
+            .html("<h1>" + "Doping in Professional Bicycle Racing" + "</h1>" + "<br/>" + "<p>" + "35 Fastest times up Alpe d'Huez" + "</p>");
+
+        // url for data
+        const url = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json';
+
+        //svg dimensions
+        const w = 800;
+        const h = 500;
+        const padding = ({ 'top': 40, 'right': 7, 'bottom': 30, 'left': 50 });
+
+        //svg creation
+        const svg = d3.select("#data").append("svg").attr("class", "scatterClass").attr("height", h).attr("width", w);
+
+        // tooltip creation
+        let tooltip = d3.select("body").append("div")
+            .attr("class", "scatter-tip")
+            .attr("id", "tooltip")
+            .style("opacity", 0);
+
+        // reading in the json data
+        d3.json(url).then(function (data) {
+            // making the scales
+            let years = data.map((d) => new Date(d.Year, 0, 1, 0, 0, 0, 0));
+            // making the start and end years a year more so the plot looks nicer
+            years.push(new Date(1993, 0, 1, 0, 0, 0, 0));
+            years.push(new Date(2016, 0, 1, 0, 0, 0, 0));
+            const xScale = d3.scaleTime()
+                .domain([d3.min(years), d3.max(years)])
+                .range([padding.left, w - padding.right]);
+            // formatting the time as Date object here
+            let mmSS = data.map((d) => new Date(0, 0, 1, 0, d.Time.split(":")[0], d.Time.split(":")[1], 0));
+            const yScale = d3.scaleTime()
+                .domain([d3.min(mmSS), d3.max(mmSS)])
+                .range([h - padding.bottom, padding.top]);
+
+            // making the scatterplot itself
+            svg.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", (d, i) => xScale(years[i]) - 10)
+                .attr("cy", (d, i) => h - yScale(mmSS[i]) - padding.bottom + padding.top)
+                .attr("r", 5)
+                .attr("class", "dot")
+                .attr("data-xvalue", (d, i) => data[i].Year)
+                .attr("data-yvalue", (d, i) => {
+                    let timeConverted = new Date(1970, 0, 1, 0, parseInt(data[i].Time.substring(0, 2), 10), parseInt(data[i].Time.substring(3), 10), 0);
+                    return (timeConverted.toISOString());
+                })
+                .attr("year", (d, i) => data[i].Year)
+                .attr("fill", (d, i) => data[i].Doping === "" ? "#efca08" : "#e3170a")
+                .attr("stroke", "black")
+                .on("mouseover", (d, i) => {
+                    if (data[i].Doping === "") {
+                        tooltip.transition()
+                            .duration(250)
+                            .style("opacity", 0.8);
+                        tooltip.html(data[i].Name + ": " + data[i].Nationality + "<br/> Year: " + data[i].Year + ", Time: " + data[i].Time)
+                            .attr("data-year", data[i].Year);
+                    } else {
+                        tooltip.transition()
+                            .duration(250)
+                            .style("opacity", 0.8);
+                        tooltip.html(data[i].Name + ": " + data[i].Nationality + "<br/> Year: " + data[i].Year + ", Time: " + data[i].Time + "<br/><br/>" + data[i].Doping)
+                            .attr("data-year", data[i].Year);
+                    }
+                })
+                .on("mousemove", () => {
+                    d3.select("#tooltip")
+                        .style("left", (d3.event.pageX + 10) + "px")
+                        .style("top", (d3.event.pageY + 10) + "px")
+                })
+                .on("mouseout", () => {
+                    d3.select("#tooltip")
+                        .style("opacity", 0);
+                });
+
+            // making the axes
+            let xAxis = d3.axisBottom(xScale);
+            // had to reverse the scale for the y-axis
+            const yAxisScale = d3.scaleTime()
+                .domain([d3.max(mmSS), d3.min(mmSS)])
+                .range([h - padding.bottom, padding.top]);
+            let yAxis = d3.axisLeft(yAxisScale).tickFormat(d3.timeFormat("%M:%S")).tickSizeInner(3).tickSizeOuter(2);
+
+            svg.append("g")
+                .attr("id", "x-axis")
+                .attr("transform", "translate(" + -10 + ", " + (h - padding.bottom) + ")")
+                .call(xAxis);
+
+            svg.append("g")
+                .attr("id", "y-axis")
+                .attr("class", "scatter-y-axis")
+                .attr("transform", "translate(" + padding.left + ", 0)")
+                .call(yAxis);
+
+            svg.append("text")
+                .attr("id", "y-label")
+                .attr("class", "scatter-y-label")
+                .attr("text-anchor", "end")
+                .attr("x", -40)
+                .attr("y", 1)
+                .attr("dy", ".75em")
+                .attr("transform", "rotate(-90)")
+                .text("Time in Minutes");
+
+            // making the legend
+            svg.append("g")
+                .attr("id", "legend")
+                .append("circle")
+                .attr("cx", 775)
+                .attr("cy", 116)
+                .attr("r", 5)
+                .attr("stroke", "black")
+                .style("fill", "#e3170a");
+
+            svg.select("#legend")
+                .append("circle")
+                .attr("cx", 775)
+                .attr("cy", 140)
+                .attr("r", 5)
+                .attr("stroke", "black")
+                .style("fill", "#efca08");
+
+            svg.select("#legend")
+                .append("text")
+                .text("No doping allegations")
+                .attr("x", 620)
+                .attr("y", 145);
+
+            svg.select("#legend")
+                .append("text")
+                .text("Doping allegations")
+                .attr("x", 640)
+                .attr("y", 121);
+        })
+            .catch(function (error) {
+                if (error) {
+                    console.warn(error);
+                }
+            });
+    </script>
+    <footer id="page-footer">
+        <p id="footer-text">Find me at the links below!</p>
+        <a href="https://github.com/Mir-Khan" target="_blank" id="github-link"><i class="fab fa-github fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/mir-khan/" target="_blank" id="linkedin-link"><i
+                class="fab fa-linkedin fa-2x"></i></a>
+        <a href="/index.html" class="fourLink" id="home-link"><i class="fas fa-home fa-2x"></i></a>
+    </footer>
+</body>
+
+</html>
