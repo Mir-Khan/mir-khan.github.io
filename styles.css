@@ -133,7 +133,8 @@
 
 .heat-body {
   background-color: #93e5ab;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Ubuntu", sans-serif;
+  zoom: 80%; }
   .heat-body .heat-description {
     font-size: 17px;
     text-align: center;

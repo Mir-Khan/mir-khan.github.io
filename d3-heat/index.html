@@ -34,7 +34,7 @@
 
         // svg dimensions
         const w = 1380;
-        const h = 420;
+        const h = 350;
         const padding = ({ "top": 40, "right": 60, "bottom": 60, "left": 80 });
 
         // svg creation
@@ -125,7 +125,7 @@
             svg.append("g")
                 .attr("id", "x-axis")
                 .attr("class", "heat-x-axis")
-                .attr("transform", "translate(" + 2 + ", " + (h - 25) + ")")
+                .attr("transform", "translate(" + 2 + ", " + (h - 31) + ")")
                 .call(xAxis);
 
             svg.append("text")
@@ -185,7 +185,7 @@
 
             const legend = svg.append("g")
                 .attr("id", "legend")
-                .attr("transform", "translate(" + 100 + ", " + 450 + ")");
+                .attr("transform", "translate(" + 100 + ", " + (h + 30) + ")");
 
             legend.selectAll()
                 .data(threshVals)
