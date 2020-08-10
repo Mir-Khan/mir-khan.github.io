@@ -9,14 +9,20 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "file": "${workspaceFolder}/d3-scatter/index.html"
+            "file": "${workspaceFolder}/d3-heat/index.html",
+            "pathMappings": [
+                {
+                    "url": "file:///C:",
+                    "path": "c:"
+                }
+            ]
         },
         {
             "name": "Launch localhost",
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "url": "http://localhost/d3-scatter/index.html",
+            "url": "http://localhost/d3-heat/index.html",
             "webRoot": "${workspaceFolder}"
         },
         {

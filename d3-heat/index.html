@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Scatter Plot</title>
+    <link href="../styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/63ada23c4f.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-time.v1.min.js"></script>
+    <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+</head>
+
+<body class="heat-body">
+    <div id="description" class="heat-description">
+        <p>This scatter plot was made using the data found <a
+                href="https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json">here</a>
+            as a part of the D3 challenges at <a href="https://www.freecodecamp.org/">Freecodecamp.org</a>
+    </div>
+    <div class="heat-container">
+        <div id="title" class="heat-title"></div>
+        <div id="data"></div>
+    </div>
+    <script>
+        // the url of the data
+        const url = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json";
+
+        // titles of scatterplot
+        d3.select("#title")
+            .append("text")
+            .html("<h1>" + "Monthly Global Land-Surface Temperature" + "</h1>" + "<br/>" + "<p>" + "1753 - 2015: base temperature 8.66℃" + "</p>");
+
+        // svg dimensions
+        const w = 1380;
+        const h = 420;
+        const padding = ({ "top": 40, "right": 60, "bottom": 60, "left": 80 });
+
+        // svg creation
+        const svg = d3.select("#data")
+            .append("svg")
+            .attr("class", "heatClass")
+            .attr("height", (h + padding.top + padding.bottom))
+            .attr("width", (w + padding.left + padding.right));
+
+        // the base temperature the data uses
+        const baseTemp = 8.66;
+
+        // rect dimensions
+        const rHeight = h / 12;
+        const rWidth = w / 262;
+
+        // making the tooltip
+        let tooltip = d3.select("body").append("div")
+            .attr("class", "heat-tip")
+            .attr("id", "tooltip")
+            .style("opacity", 0);
+
+        // making a month array for the tooltip text
+        let monthNameArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        // reading in the json data
+        d3.json(url).then(function (data) {
+            // making the scales
+            const yearArr = data.monthlyVariance.map((d, i) => new Date(data.monthlyVariance[i].year, 1, 0, 0, 0, 0, 0));
+            const xScale = d3.scaleTime()
+                .domain([d3.min(yearArr), d3.max(yearArr)])
+                .range([padding.left, w + padding.right]);
+
+            // changing the months in the data to date objects
+            (data.monthlyVariance).forEach(element => {
+                element.month = new Date(1970, element.month - 1, 0, 0, 0, 0, 0);
+                element.month = new Date(element.month.setUTCDate(element.month.getUTCDate() + 1));
+            });
+
+            const monthArr = data.monthlyVariance.map((d, i) => data.monthlyVariance[i].month);
+
+            const yScale = d3.scaleTime()
+                .domain([d3.max(monthArr), d3.min(monthArr)])
+                .range([h - padding.bottom, padding.top]);
+
+            // color scale
+            const tempVariance = data.monthlyVariance.map((d, i) => data.monthlyVariance[i].variance);
+            const colScale = d3.scaleSequential().interpolator(d3.interpolateRdYlBu).domain([d3.max(tempVariance), d3.min(tempVariance)]);
+
+            // making the heat map
+            svg.selectAll()
+                .data(data.monthlyVariance)
+                .enter()
+                .append("rect")
+                .attr("x", (d, i) => xScale(yearArr[i]))
+                .attr("y", (d, i) => yScale(monthArr[i]))
+                .attr("width", rWidth)
+                .attr("height", rHeight)
+                .style("fill", (d, i) => colScale(tempVariance[i]))
+                .attr("class", "cell")
+                .attr("data-month", (d, i) => monthArr[i].getMonth())
+                .attr("data-year", (d, i) => yearArr[i].getFullYear())
+                .attr("data-temp", (d, i) => tempVariance[i] + baseTemp)
+                .on("mouseover", (d, i) => {
+                    let varianceString = (tempVariance[i] <= -1) || (tempVariance[i] >= 1) ? tempVariance[i].toPrecision(2) : (tempVariance[i]).toPrecision(1);
+                    let sign = tempVariance[i] >= 0 ? "+" : "";
+                    tooltip.transition()
+                        .duration(250)
+                        .style("opacity", 0.8)
+                        .attr("data-year", yearArr[i].getFullYear());
+                    tooltip.html(yearArr[i].getFullYear() + " - " + monthNameArr[monthArr[i].getMonth()] + "<br/>" + (tempVariance[i] + baseTemp).toPrecision(2) + "℃<br/>" + sign + varianceString);
+                })
+                .on("mousemove", () => {
+                    d3.select("#tooltip")
+                        .style("left", (d3.event.pageX + 10) + "px")
+                        .style("top", (d3.event.pageY + 10) + "px");
+                })
+                .on("mouseout", () => {
+                    d3.select("#tooltip")
+                        .style("opacity", 0);
+                });
+
+            // making the axes
+            const xAxis = d3.axisBottom(xScale).ticks(d3.timeYear.every(10));
+            const yAxis = d3.axisLeft(yScale).tickFormat(d3.timeFormat("%-B"));
+
+            // x-axis
+            svg.append("g")
+                .attr("id", "x-axis")
+                .attr("class", "heat-x-axis")
+                .attr("transform", "translate(" + 2 + ", " + (h - 25) + ")")
+                .call(xAxis);
+
+            svg.append("text")
+                .attr("id", "x-label")
+                .attr("class", "heat-x-label")
+                .attr("text-anchor", "end")
+                .attr("x", (w + padding.left + padding.right) / 2)
+                .attr("y", h + 10)
+                .attr("dy", "0.75em")
+                .text("Year");
+
+            // y-axis
+            svg.append("g")
+                .attr("id", "y-axis")
+                .attr("class", "heat-y-axis")
+                .attr("transform", "translate(" + padding.left + "," + 15 + ")")
+                .call(yAxis);
+
+            svg.append("text")
+                .attr("id", "y-label")
+                .attr("class", "heat-y-label")
+                .attr("text-anchor", "end")
+                .attr("x", -150)
+                .attr("y", 10)
+                .attr("dy", "0.75em")
+                .attr("transform", "rotate(-90)")
+                .text("Month");
+
+            // making the legend
+            let legendDims = ({ "width": 200, "height": 25 });
+            // we need the domain of temperatures to properly make the legend
+            let minTemp = d3.min(tempVariance) + baseTemp;
+            let maxTemp = d3.max(tempVariance) + baseTemp;
+            let legendXScale = d3.scaleLinear()
+                .domain([minTemp, maxTemp])
+                .range([0, legendDims.width]);
+            
+            // this is to create the ticks for the legend
+            let threshVals = [];
+            let numIncrements = 15;
+            const legendTickWidth = legendDims.width / numIncrements;
+            const increment = (maxTemp - minTemp) / numIncrements;
+            for (let i = 0; i < numIncrements; i++) {
+                let val = i * increment + minTemp;
+                threshVals.push(val);
+            }
+            // this creates the colors for the legend
+            const legendColScale = d3.scaleSequential()
+                .interpolator(d3.interpolateRdYlBu)
+                .domain([maxTemp, minTemp]);
+            let threshRange = [];
+            for (let i = 0; i < threshVals.length; i++) {
+                threshRange.push(legendColScale(threshVals[i]));
+            }
+            // now we can finally add the legend itself
+            const legendXAxis = d3.axisBottom(legendXScale);
+
+            const legend = svg.append("g")
+                .attr("id", "legend")
+                .attr("transform", "translate(" + 100 + ", " + 450 + ")");
+
+            legend.selectAll()
+                .data(threshVals)
+                .enter()
+                .append("rect")
+                .attr("x", (d) => legendXScale(d))
+                .attr("y", 10)
+                .attr("width", legendTickWidth)
+                .attr("height", legendDims.height)
+                .attr("fill", (d, i) => legendColScale(d));
+
+            legend.append("g")
+            .attr("id", "legend-x-axis")
+            .attr("class", "heat-legend-x-axis")
+            .attr("transform", "translate(0," + 35 + ")")
+            .call(legendXAxis);
+
+            legend.append("text")
+            .attr("id", "legend-label")
+            .attr("class", "heat-legend-label")
+            .attr("x", 45)
+            .attr("y", 5)
+            .text("Temperature in ℃");
+        })
+            .catch(function (error) {
+                if (error) {
+                    console.warn(error);
+                }
+            });
+    </script>
+</body>
+
+</html>

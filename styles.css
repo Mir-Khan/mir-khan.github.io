@@ -130,3 +130,50 @@
     font-size: 11px; }
   .scatter-body #legend {
     font-size: 14px; }
+
+.heat-body {
+  background-color: #93e5ab;
+  font-family: "Ubuntu", sans-serif; }
+  .heat-body .heat-description {
+    font-size: 17px;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: 50vw;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 2px 4px 6px 2px black; }
+    .heat-body .heat-description a {
+      color: #65b891; }
+      .heat-body .heat-description a :hover {
+        color: #325457; }
+      .heat-body .heat-description a :visited {
+        color: #013629; }
+  .heat-body .heat-title {
+    text-align: center;
+    line-height: 5px;
+    padding-top: 20px; }
+    .heat-body .heat-title h1 {
+      text-decoration: underline; }
+  .heat-body .heat-container {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: 1500px;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: 20px; }
+  .heat-body .heatClass {
+    display: block;
+    margin: auto; }
+  .heat-body .heat-tip {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 135px; }
+  .heat-body .heat-legend-label {
+    font-size: 14px; }
