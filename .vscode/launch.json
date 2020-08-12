@@ -9,7 +9,7 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "file": "${workspaceFolder}/d3-heat/index.html",
+            "file": "${workspaceFolder}/d3-choro/index.html",
             "pathMappings": [
                 {
                     "url": "file:///C:",
@@ -22,7 +22,7 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "url": "http://localhost/d3-heat/index.html",
+            "url": "http://localhost/d3-choro/index.html",
             "webRoot": "${workspaceFolder}"
         },
         {

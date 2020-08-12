@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 .fourBody {
   background-color: #93e5ab;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Ubuntu", sans-serif;
+  height: 100%; }
   .fourBody .fourDiv {
     display: flex;
     flex-direction: column;
@@ -16,9 +17,9 @@
       font-size: 0.81rem; }
 
 #page-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  clear: both;
+  position: relative;
+  margin-top: 30px;
   width: 100%;
   text-align: center; }
   #page-footer p {
@@ -34,7 +35,8 @@
 
 .bar-body {
   background-color: #93e5ab;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Ubuntu", sans-serif;
+  height: 100%; }
   .bar-body .bar-description {
     font-size: 17px;
     text-align: center;
@@ -80,7 +82,8 @@
 
 .scatter-body {
   background-color: #93e5ab;
-  font-family: "Ubuntu", sans-serif; }
+  font-family: "Ubuntu", sans-serif;
+  height: 100%; }
   .scatter-body .scatter-description {
     font-size: 15px;
     text-align: center;
@@ -134,7 +137,7 @@
 .heat-body {
   background-color: #93e5ab;
   font-family: "Ubuntu", sans-serif;
-  zoom: 80%; }
+  height: 100%; }
   .heat-body .heat-description {
     font-size: 17px;
     text-align: center;
@@ -178,3 +181,51 @@
     width: 135px; }
   .heat-body .heat-legend-label {
     font-size: 14px; }
+
+.choro-body {
+  background-color: #93e5ab;
+  font-family: "Ubuntu", sans-serif;
+  height: 100%; }
+  .choro-body .choro-description {
+    font-size: 13px;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: 90vw;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 2px 4px 6px 2px black; }
+    .choro-body .choro-description a {
+      color: #65b891; }
+      .choro-body .choro-description a :hover {
+        color: #325457; }
+      .choro-body .choro-description a :visited {
+        color: #013629; }
+  .choro-body .choro-container {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: 80vw;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: 30px;
+    margin-bottom: 20px; }
+  .choro-body .choro-title {
+    text-align: center;
+    line-height: 10px;
+    padding-top: 10px; }
+    .choro-body .choro-title h1 {
+      font-size: 28px;
+      text-decoration: underline; }
+    .choro-body .choro-title p {
+      font-size: 20px; }
+  .choro-body .choroClass {
+    display: block;
+    margin: auto; }
+  .choro-body .choro-tip {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 10px; }
