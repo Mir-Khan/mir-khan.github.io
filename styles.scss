@@ -184,31 +184,31 @@ $yellow-munsel: rgba(239, 202, 8, 1);
     }
 }
 
-.heat-body{
+.heat-body {
     @include default-body();
 
-    .heat-description{
+    .heat-description {
         @include d3-description(17px, 50vw, 15px);
     }
 
-    .heat-title{
+    .heat-title {
         text-align: center;
         line-height: 5px;
         padding-top: 20px;
-        h1{
+        h1 {
             text-decoration: underline;
         }
     }
 
-    .heat-container{
+    .heat-container {
         @include svgContainer(1500px, 20px);
     }
 
-    .heatClass{
+    .heatClass {
         @include svgCenter();
     }
 
-    .heat-tip{
+    .heat-tip {
         @include tooltip-setup(black, white);
         font-size: 16px;
         padding: 5px;
@@ -216,43 +216,94 @@ $yellow-munsel: rgba(239, 202, 8, 1);
         width: 135px;
     }
 
-    .heat-legend-label{
+    .heat-legend-label {
         font-size: 14px;
     }
 }
 
-.choro-body{
+.choro-body {
     @include default-body();
 
-    .choro-description{
+    .choro-description {
         @include d3-description(13px, 90vw, 20px);
     }
 
-    .choro-container{
+    .choro-container {
         @include svgContainer(80vw, 30px);
         margin-bottom: 20px;
     }
 
-    .choro-title{
+    .choro-title {
         text-align: center;
         line-height: 10px;
         padding-top: 10px;
-        h1{
+        h1 {
             font-size: 28px;
             text-decoration: underline;
         }
-        p{
+        p {
             font-size: 20px;
         }
     }
 
-    .choroClass{
+    .choroClass {
         @include svgCenter();
     }
 
-    .choro-tip{
+    .choro-tip {
         @include tooltip-setup(black, white);
         padding: 5px;
         border-radius: 10px;
+    }
+}
+
+.tree-body {
+    @include default-body();
+
+    .tree-description {
+        @include d3-description(15px, 50vw, 10px);
+    }
+
+    .tree-title {
+        text-align: center;
+        padding-top: 20px;
+        line-height: 15px;
+        a {
+            color: $dark-green;
+            :hover {
+                color: $vermillion;
+            }
+            :visited {
+                color: $yellow-munsel;
+            }
+        }
+        .tree-buttons {
+            fill: $yellow-munsel;
+        }
+        .tree-button-text {
+            fill: $steel-teal;
+            font-size: 11px;
+            font-weight: bold;
+        }
+    }
+
+    .tree-container {
+        @include svgContainer(70vw, 20px);
+        margin-bottom: 15px;
+    }
+
+    .tree-tip {
+        @include tooltip-setup(black, white);
+        border-radius: 
+    }
+
+    .treeClass {
+        @include svgCenter();
+        padding-top: 35px;
+    }
+
+    .treeLegend {
+        @include svgCenter();
+        padding-top: 40px;
     }
 }

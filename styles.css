@@ -229,3 +229,61 @@
     color: white;
     padding: 5px;
     border-radius: 10px; }
+
+.tree-body {
+  background-color: #93e5ab;
+  font-family: "Ubuntu", sans-serif;
+  height: 100%; }
+  .tree-body .tree-description {
+    font-size: 15px;
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    width: 50vw;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 2px 4px 6px 2px black; }
+    .tree-body .tree-description a {
+      color: #65b891; }
+      .tree-body .tree-description a :hover {
+        color: #325457; }
+      .tree-body .tree-description a :visited {
+        color: #013629; }
+  .tree-body .tree-title {
+    text-align: center;
+    padding-top: 20px;
+    line-height: 10px; }
+    .tree-body .tree-title a {
+      color: #013629; }
+      .tree-body .tree-title a :hover {
+        color: #e3170a; }
+      .tree-body .tree-title a :visited {
+        color: #efca08; }
+    .tree-body .tree-title .tree-buttons {
+      fill: #efca08; }
+    .tree-body .tree-title .tree-button-text {
+      fill: #325457;
+      font-size: 11px;
+      font-weight: bold; }
+  .tree-body .tree-container {
+    background-color: white;
+    padding: 3px;
+    margin: auto;
+    width: 70vw;
+    box-shadow: 2px 5px 6px 4px black;
+    margin-top: 20px;
+    margin-bottom: 15px; }
+  .tree-body .tree-tip {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: black;
+    color: white; }
+  .tree-body .treeClass {
+    display: block;
+    margin: auto;
+    padding-top: 35px; }
+  .tree-body .treeLegend {
+    display: block;
+    margin: auto;
+    padding-top: 40px; }
