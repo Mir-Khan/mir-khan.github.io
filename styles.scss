@@ -294,7 +294,7 @@ $yellow-munsel: rgba(239, 202, 8, 1);
 
     .tree-tip {
         @include tooltip-setup(black, white);
-        border-radius: 
+        border-radius: 5px;
     }
 
     .treeClass {
