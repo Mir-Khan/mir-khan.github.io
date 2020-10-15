@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Staatliches&display=swap');
+$text-font: 'Montserrat',
+sans-serif;
+$titles-font: 'Staatliches',
+cursive;
+$red: hsl(0, 100%, 32%);
+$white: hsl(0, 0%, 94%);
+$black: hsl(335, 86%, 3%);
+$gray: hsla(0, 0%, 94%, 0.651);
+$ruby: hsl(350, 96%, 33%);
+$tiny-text: 1.2rem;
+$small-text: 1.4rem;
+$normal-text: 1.6rem;
+$large-text: 2.4rem;
+$huge-text: 3rem;
+
+@mixin font-props($size, $ff, $col) {
+    font-family: $ff;
+    font-size: $size;
+    color: $col;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+nav {
+    @include font-props($normal-text, $titles-font, $black);
+    width: 100vw;
+    background-color: $gray;
+
+    li>a {
+        height: 3.4rem;
+    }
+
+    //from https://emilkowalski.github.io/css-effects-snippets/
+    .borderFade {
+        padding-bottom: 1px;
+        color: hsl(222, 25%, 14%);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            transform: translateY(3px);
+            background: $red;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.section {
+    width: 90% !important;
+    padding-top: 2rem;
+}
+
+.section-name {
+    h2 {
+        @include font-props($huge-text, $titles-font, $black);
+    }
+
+    padding-top: 3rem;
+    padding-bottom: 2.2rem;
+}
+
+hr {
+    margin-top: -1.5rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.download-section {
+    padding-bottom: 2rem;
+}
+
+.download-button {
+    // Got from https://emilkowalski.github.io/css-effects-snippets/ and adjusted for my own use
+    padding: 12px 24px;
+    background-color: $ruby !important;
+    color: $white !important;
+    transition: transform 250ms ease-in-out;
+    border: none !important;
+
+    &:hover {
+        transform: scale(1.10);
+        border: none !important;
+    }
+
+    &:active {
+        transform: scale(.9);
+        border: none !important;
+    }
+}
+
+
+.resume-section {
+    @include font-props($large-text, $text-font, $black);
+    font-weight: 300;
+    text-decoration: underline;
+    padding-bottom: 1.4rem;
+}
+
+.list-timeline {
+    list-style: none;
+
+    .badge {
+        padding: 0.4rem !important;
+    }
+
+    .badge-primary {
+        background-color: #276FBF;
+    }
+
+    h6 {
+        @include font-props($tiny-text, $text-font, $white);
+    }
+
+    p {
+        @include font-props($tiny-text, $text-font, $black);
+        padding-top: 1.5rem;
+    }
+
+    li {
+        line-height: 0;
+        position: relative;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 100%;
+            left: 0.5rem;
+            transform: translateX(-50%);
+            width: 0.1rem;
+            background-color: hsla(0, 0%, 82%, 0.678);
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: $black;
+        }
+
+        &:nth-child(2) {
+            &:before {
+                background-color: white;
+            }
+
+            &:after {
+                background-color: $red;
+            }
+        }
+    }
+}
+
+.fizz-icons {
+    font-size: 4rem;
+}
+
+.skill-name {
+    @include font-props($small-text, $text-font, $black);
+}
+
+.portfolio-card {
+    margin: 3rem;
+
+    a {
+        @include font-props($tiny-text, $text-font, $black);
+
+        &:hover {
+            color: $red !important;
+            text-decoration: none;
+        }
+
+        &:visited {
+            color: #276FBF;
+        }
+    }
+}
+
+.card-title {
+    @include font-props($normal-text, $titles-font, $black);
+}
+
+.card-text {
+    @include font-props($tiny-text, $text-font, $black);
+}
+
+//from https://emilkowalski.github.io/css-effects-snippets/ and adjusted to my own use
+.magnifyText {
+    color: hsl(222, 25%, 14%);
+    transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.magnifyText:hover {
+    transform: scale(1.05);
+    color: $red;
+}
+
+.magnifyText:active {
+    transform: scale(.9);
+}
+
+.footer {
+    width: 100%;
+    margin-top: 10rem;
+
+    a,
+    p {
+        @include font-props($tiny-text, $text-font, $black);
+    }
+
+    a:hover {
+        color: $red !important;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: #276FBF;
+    }
+}
+
+//tested on Firefox dev tools
+//portrait media queries
+@media only screen and (max-width: 767px) {
+    #resume {
+        p {
+            width: 30rem;
+        }
+    }
+
+    .skill-name {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .list-timeline {
+        padding-left: 1rem;
+    }
+
+    .resume-section {
+        padding-top: 1.5rem;
+    }
+}
+
+//exclusively for larger screens like the Kindle Fire HDX
+@media only screen and (max-width: 800px) {
+    #resume {
+        p {
+            width: 27rem;
+        }
+    }
+
+    .skill-name {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+//landscapes
+@media only screen and (min-width: 812px) and (max-width: 1024px) and (orientation: landscape) {
+    #resume {
+        p {
+            width: 28rem;
+        }
+
+        ul {
+            width: 50rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .skill-name {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resume-section {
+        padding-top: 1.5rem;
+    }
+}

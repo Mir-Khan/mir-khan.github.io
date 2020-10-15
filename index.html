@@ -1,11 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mir's Homepage</title>
+    <!-- Primary Meta Tags -->
+    <title>Mir Khan's Homepage</title>
+    <meta name="title" content="Mir Khan's Homepage">
+    <meta name="description" content="Mir Khan's landing page.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.mir-khan.com/">
+    <meta property="twitter:title" content="Mir Khan's Resume">
+    <meta property="twitter:description" content="Mir Khan's landing page.">
+    <meta property="twitter:image" content="">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/home-styles.css">
+    <!-- mfizz icons for skills -->
+    <link rel="stylesheet" href="font-mfizz/font-mfizz.css">
+    <!-- bootstrap requirements -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="manifest" href="favicons/site.webmanifest">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <!-- fontawesome icons for brands-->
+    <script src="https://kit.fontawesome.com/63ada23c4f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>this is a test <a href="www.mir-khan.com" target="_blank">link</a></h1>
+    <div id="header" class="container-fluid header">
+        <div class="row" id="header-row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <a class="navbar-brand" href="#"><img src="favicons/apple-touch-icon.png" width="30" height="30"
+                        class="d-inline-block align-top" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link borderFade" href="#resume">Resume <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item borderFade">
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item borderFade">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="resume" class="container-fluid section">
+        <div class="row justify-content-center section-name">
+            <h2>Resume</h2>
+        </div>
+        <hr />
+        <div class="row justify-content-center download-section">
+            <a href="Mir Khan Resume.docx" download><button type="button"
+                    class="btn btn-primary btn-lg download-button">Download my Resume
+                    here!</button></a>
+        </div>
+        <div class="row">
+            <div id="resume-education" class="col">
+                <h3 class="resume-section text-center">Education</h3>
+                <ul class="list-timeline">
+                    <li>
+                        <span class="badge badge-primary">
+                            <h6>2011-2015</h6>
+                        </span>
+                        <p><span style="font-weight: 600; font-style: italic;">Brooklyn Technical High
+                                School</span></p>
+                        <p><span style="text-decoration: underline;">GPA</span>: 3.95</p>
+                    </li>
+                    <li>
+                        <span class="badge badge-primary">
+                            <h6>2015-2019</h6>
+                        </span>
+                        <p><span style="font-weight: 600; font-style: italic;">CUNY: Baruch College</span>
+                        </p>
+                        <p><span style="text-decoration: underline;">Major</span>: Computer Information
+                            Systems</p>
+                        <p><span style="text-decoration: underline;">Minor</span>: Sociology</p>
+                        <p><span style="text-decoration: underline;">Honors</span>: Magna Cum Laude</p>
+                        <p><span style="text-decoration: underline;">GPA</span>: 3.81</p>
+                    </li>
+                </ul>
+            </div>
+            <div id="resume-skills" class="col">
+                <h3 class="resume-section text-center skills">Skills</h3>
+                <div class="row text-center">
+                    <div class="col">
+                        <i class="icon-html5-alt fizz-icons" style="color: #f16529;"></i>
+                        <p class="skill-name">HTML</p>
+                        <i class="icon-css3-alt fizz-icons" style="color: #0277bd;"></i>
+                        <p class="skill-name">CSS</p>
+                        <i class="icon-mongodb fizz-icons" style="color: #39a444;"></i>
+                        <p class="skill-name">MongoDB</p>
+                    </div>
+                    <div class="col">
+                        <i class="icon-reactjs fizz-icons" style="color: #61dafb;"></i>
+                        <p class="skill-name">React JS</p>
+                        <i class="icon-javascript-alt fizz-icons" style="color: #d6ba32;"></i>
+                        <p class="skill-name">Javascript</p>
+                        <i class="icon-nodejs fizz-icons" style="color: #76b75b;"></i>
+                        <p class="skill-name">Node JS</p>
+                    </div>
+                    <div class="col">
+                        <i class="icon-bootstrap fizz-icons" style="color: #743fc1;"></i>
+                        <p class="skill-name">Bootstrap</p>
+                        <i class="icon-sass fizz-icons" style="color: #ba5d88;"></i>
+                        <p class="skill-name">Sass</p>
+                        <i class="icon-python fizz-icons" style="color: #376f9f;"></i>
+                        <p class="skill-name">Python</p>
+                    </div>
+                </div>
+            </div>
+            <div id="resume-experience" class="col">
+                <h3 class="resume-section text-center">Experience</h3>
+                <ul class="list-timeline">
+                    <li>
+                        <span class="badge badge-primary">
+                            <h6>July 2015 - June 2018</h6>
+                        </span>
+                        <p><span style="font-weight: 600; font-style: italic;">Khan's Tutorial</span></p>
+                        <p>Responsible for tutoring children ranging</p>
+                        <p>from ages 8-18 in Math, Science, and English.</p>
+                    </li>
+                    <li>
+                        <span class="badge badge-primary">
+                            <h6>February 2019- August 2019</h6>
+                        </span>
+                        <p><span style="font-weight: 600; font-style: italic;">Empire State Development</span></p>
+                        <p>Responsible for consolidation of technical</p>
+                        <p>documents and creating data applications</p>
+                        <p>using VBA, Excel, and Microsoft Access.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio" class="container-fluid section">
+        <div class="row justify-content-center section-name">
+            <h2>Portfolio</h2>
+        </div>
+        <hr />
+        <div class="row portfolio-row">
+            <div class="card portfolio-card col">
+                <img class="card-img-top portfolio-img text-center" data-src="" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title portfolio-title text-center">Title</h4>
+                    <p class="card-text portfolio-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id dictum dolor, id
+                        vehicula
+                        arcu. Etiam at tincidunt dolor, id imperdiet enim. Vivamus nec justo in dui ultricies
+                        efficitur.
+                        Nunc lacinia, ex nec tincidunt facilisis, nisl nisi maximus nisl, in eleifend velit nisi id
+                        ante. Nunc eu arcu vel metus euismod posuere. Suspendisse eget aliquet nibh. Aenean
+                        consectetur
+                        ante ac ligula faucibus, in venenatis arcu malesuada. Nullam a tempor sapien. </p>
+                </div>
+                <div class="card-body text-center">
+                    <a href="#" class="card-link portfolio-links">Card link</a>
+                    <a href="#" class="card-link portfolio-links">Another link</a>
+                </div>
+            </div>
+        </div>
+        <div class="row portfolio-row">
+            <div class="card portfolio-card col">
+                <img class="card-img-top portfolio-img text-center" data-src="" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title portfolio-title text-center">Title</h4>
+                    <p class="card-text portfolio-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id dictum dolor, id
+                        vehicula
+                        arcu. Etiam at tincidunt dolor, id imperdiet enim. Vivamus nec justo in dui ultricies
+                        efficitur.
+                        Nunc lacinia, ex nec tincidunt facilisis, nisl nisi maximus nisl, in eleifend velit nisi id
+                        ante. Nunc eu arcu vel metus euismod posuere. Suspendisse eget aliquet nibh. Aenean
+                        consectetur
+                        ante ac ligula faucibus, in venenatis arcu malesuada. Nullam a tempor sapien. </p>
+                </div>
+                <div class="card-body text-center">
+                    <a href="#" class="card-link portfolio-links">Card link</a>
+                    <a href="#" class="card-link portfolio-links">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="container-fluid section">
+        <div class="row justify-content-center section-name">
+            <h2>Contact</h2>
+        </div>
+        <hr />
+        <div class="row text-center">
+            <div class="col" id="linkedin">
+                <a href="https://www.linkedin.com/in/mir-khan/" target="_blank"><i
+                        class="fab fa-linkedin fa-7x magnifyText"></i></a>
+            </div>
+            <div class="col" id="github">
+                <a href="https://github.com/Mir-Khan" target="_blank"><i
+                        class="fab fa-github fa-7x magnifyText"></i></a>
+            </div>
+            <div class="col" id="email">
+                <a href="mailto:mirkhan1497@gmail.com"><i class="fas fa-at fa-7x magnifyText" alt="email-icon"></i></a>
+            </div>
+            <div class="col">
+                <a href="tel:1-347-801-3139"><i class="fas fa-phone fa-7x magnifyText"></i></a>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer text-center">
+        <div class="container-fluid">
+            <p>Made by Mir Khan.<br><a href="https://www.linkedin.com/in/mir-khan/" target="_blank">Linkedin</a> | <a
+                    href="https://github.com/Mir-Khan" target="_blank">Github</a> | <a
+                    href="mailto:mirkhan1497@gmail.com">mirkhan1497@gmail.com</a> | <a href="tel:1-347-801-3139">Phone:
+                    1-347-801-3139</a><br /><a href="#resume">Resume</a> | <a href="#portfolio">Portfolio</a> | <a
+                    href="#contact">Contact</a>
+            </p>
+        </div>
+    </footer>
 </body>
+
 </html>

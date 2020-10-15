@@ -1,0 +1,14 @@
+{
+  "name": "website-package.json-file",
+  "description": "The package file for my website",
+  "author": {
+    "name": "Mir",
+    "email": "mirkhan1497@gmail.com",
+    "url": "www.mir-khan.com"
+  },
+  "private": true,
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  }
+}
