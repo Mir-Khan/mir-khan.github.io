@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap');
+$text-font: 'Montserrat',
+sans-serif;
+$titles-font: 'Staatliches',
+cursive;
+$red: hsl(0, 100%, 32%);
+$white: hsl(0, 0%, 94%);
+$small-text: 1.4rem;
+$normal-text: 1.6rem;
+$large-text: 2.4rem;
+$huge-text: 3rem;
+
+@mixin font-props($size, $ff, $col) {
+    font-family: $ff;
+    font-size: $size;
+    color: $col
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.err-container {
+    margin: auto;
+}
+
+.error-page {
+    background-color: $red;
+    height: 100%;
+    display: grid;
+}
+
+.four-oh-four-msg {
+    @include font-props($huge-text, $titles-font, $white);
+
+    .sub {
+        font-size: $large-text;
+    }
+
+    a {
+        color: $white;
+        text-decoration: underline;
+
+        &:visited {
+            color: $white;
+        }
+    }
+}
+
+// https://css-tricks.com/the-shapes-of-css/
+#magnifying-glass {
+    font-size: 10em;
+    display: inline-block;
+    width: 0.4em;
+    box-sizing: content-box;
+    height: 0.4em;
+    border: 0.1em solid $white;
+    position: relative;
+    border-radius: 0.35em;
+    margin-bottom: 3rem;
+}
+
+#magnifying-glass:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -0.25em;
+    bottom: -0.1em;
+    border-width: 0;
+    background: $white;
+    width: 0.35em;
+    height: 0.08em;
+    transform: rotate(45deg);
+}
