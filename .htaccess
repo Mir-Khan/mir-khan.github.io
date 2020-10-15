@@ -9,4 +9,7 @@ ErrorDocument 404 /404.html
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
+
+    # Manifest file
+    ExpiresByType application/x-web-app-manifest+json  "access plus 1 month"
 </IfModule>
