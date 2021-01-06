@@ -198,3 +198,12 @@ hr {
     margin-right: auto; }
   .resume-section {
     padding-top: 1.5rem; } }
+
+.card-title {
+  text-decoration: underline; }
+
+.playGen-img {
+  width: 80% !important;
+  height: 80%;
+  padding: 1rem;
+  margin: auto; }
