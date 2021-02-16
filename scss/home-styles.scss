@@ -181,6 +181,11 @@ hr {
 .portfolio-card {
     margin: 3rem;
 
+    img{
+        height: 25rem;
+        margin-top: 2rem;
+    }
+
     a {
         @include font-props($tiny-text, $text-font, $black);
 
@@ -191,6 +196,14 @@ hr {
 
         &:visited {
             color: #276FBF;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .portfolio-card{
+        img{
+            height: 10rem;
         }
     }
 }
@@ -300,11 +313,4 @@ hr {
 
 .card-title{
     text-decoration: underline;
-}
-
-.playGen-img{
-    width: 80% !important;
-    height: 80%;
-    padding: 1rem;
-    margin: auto;
 }

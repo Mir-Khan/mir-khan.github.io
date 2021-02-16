@@ -123,6 +123,9 @@ hr {
 
 .portfolio-card {
   margin: 3rem; }
+  .portfolio-card img {
+    height: 25rem;
+    margin-top: 2rem; }
   .portfolio-card a {
     font-family: "Montserrat", sans-serif;
     font-size: 1.2rem;
@@ -132,6 +135,10 @@ hr {
       text-decoration: none; }
     .portfolio-card a:visited {
       color: #276FBF; }
+
+@media only screen and (max-width: 600px) {
+  .portfolio-card img {
+    height: 10rem; } }
 
 .card-title {
   font-family: "Staatliches", cursive;
@@ -201,9 +208,3 @@ hr {
 
 .card-title {
   text-decoration: underline; }
-
-.playGen-img {
-  width: 80% !important;
-  height: 80%;
-  padding: 1rem;
-  margin: auto; }
